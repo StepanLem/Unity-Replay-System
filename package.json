@@ -1,0 +1,32 @@
+{
+    "name": "com.stepanlem.replaysystem",
+    "version": "1.0.0",
+    "displayName": "Replay System",
+    "description": "Record animations even in the Build! And also Serialize and Play them in Runtime too.",
+    "unity": "2019.1",
+    "unityRelease": "0b5",
+    "keywords": [
+        "replay",
+        "recording",
+        "runtime recording",
+        "replay system",
+        "stepanlem"
+    ],
+    "samples": [
+        {
+            "displayName": "Basic Scripts and Folders",
+            "description": "You need it. Contains ready to use ReplayController and common ReplayableValues: Transform.Position and Transform.Rotation",
+            "path": "Samples~/ReplaySystem"
+        },
+        {
+            "displayName": "Sample Recording Scene",
+            "description": "Contains sample scene showing Recording, Serialization(To File or ScroptableObject) and Playbacking. Depends on ReplayableValues in \"Basic Scripts and Folders\"",
+            "path": "Samples~/Sample Recording Scene"
+        }
+    ],
+    "author": {
+        "name": "StepanLem",
+        "email": "stepanlemtugin@gmail.com",
+        "url": "https://github.com/StepanLem"
+    }
+}
