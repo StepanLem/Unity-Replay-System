@@ -1,30 +1,33 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class CustomTicker : MonoTicker
+namespace StepanLem.ReplaySystem
 {
-    [Tooltip("Time in seconds")]
-    [SerializeField] private float _interval = 1f;
-
-    private Coroutine _tickingCoroutine;
-
-    private void OnEnable()
+    public class CustomTicker : MonoTicker
     {
-        _tickingCoroutine = StartCoroutine(TickCoroutine());
-    }
+        [Tooltip("Time in seconds")]
+        [SerializeField] private float _interval = 1f;
 
-    private void OnDisable()
-    {
-        StopCoroutine(_tickingCoroutine);
-        _tickingCoroutine = null;
-    }
+        private Coroutine _tickingCoroutine;
 
-    private IEnumerator TickCoroutine()
-    {
-        while (true)
+        private void OnEnable()
         {
-            yield return new WaitForSeconds(_interval);
-            Tick();
+            _tickingCoroutine = StartCoroutine(TickCoroutine());
+        }
+
+        private void OnDisable()
+        {
+            StopCoroutine(_tickingCoroutine);
+            _tickingCoroutine = null;
+        }
+
+        private IEnumerator TickCoroutine()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(_interval);
+                Tick();
+            }
         }
     }
 }

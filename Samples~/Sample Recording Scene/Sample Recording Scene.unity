@@ -167,11 +167,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _recordableRoot: {fileID: 1192675042}
-  _playbackableRoot: {fileID: 1192675041}
   SaveInPersistentDataPath: 0
+  _playbackableRoot: {fileID: 1192675041}
   LoadFromPersistentDataPath: 0
-  ChoosenReplayIndexInPersistantDataPath: 0
-  _recordContainerSO: {fileID: 0}
+  _recordContainerSO: {fileID: 11400000, guid: 84d1063eaf2c0734ab2c0feeaf3a11d1, type: 2}
+  Record_FileName: Record_000.json
+  RecordsFolder_InProject: Assets/Records
+  RecordsFolder_InPersistentData: Records
 --- !u!1 &117149527
 GameObject:
   m_ObjectHideFlags: 0

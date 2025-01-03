@@ -1,7 +1,10 @@
-﻿public class UpdateTicker : MonoTicker
+﻿namespace StepanLem.ReplaySystem
 {
-    public void Update()
+    public class UpdateTicker : MonoTicker
     {
-        Tick();
+        public void Update()
+        {
+            Tick();
+        }
     }
 }

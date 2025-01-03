@@ -1,6 +1,9 @@
 ﻿using System;
 
-public interface ITicker
+namespace StepanLem.ReplaySystem
 {
-    public event Action OnTick;
+    public interface ITicker
+    {
+        public event Action OnTick;
+    }
 }

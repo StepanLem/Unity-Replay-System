@@ -1,12 +1,12 @@
 {
-    "name": "StepanLem.ReplaySystem",
+    "name": "StepanLem.ReplaySystem.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:1c97c3d92d40d91f63a2063b0024bf60",
-        "GUID:a65d9a73e86e8a16094732b640e510ef",
-        "GUID:19daf7ceaf096dda981e4cd80aad62af"
+        "GUID:e499b812c3a4d954b81ddca327bfc404"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

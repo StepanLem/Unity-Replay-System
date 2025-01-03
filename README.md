@@ -1,50 +1,89 @@
-﻿About Me: A system for recording and replaying game data.
+﻿<h1 align="center">Record/Replay System for Unity</h1>
+
+---
+
+A system for Recording and Replaying game data.   
+Allows you to Record ***any*** sequence of data, Serialize, and Replay it.  
+***Work even In Build!***
+## [Video Demonstration](https://youtu.be/xvFZjo5PgG0?si=7dqyc8xebr6O7cjw)
+---
+
+## Quality Assessment
+
+`Architecture:` Allows recording scenes with many elements with minimal manual effort.
+
+`Optimization:` The system is optimized to avoid boxing/unboxing when accessing or setting values.
+
+---
+
+## Installation
+
+[Video Guide](https://youtu.be/xvFZjo5PgG0?si=7dqyc8xebr6O7cjw)
+
+1. **Install the package:**
+   - Open Unity Package Manager.
+   - Select **Add package from Git URL**.
+   - Enter: `https://github.com/StepanLem/Unity-Replay-System.git`
+
+2. **Download Sample scene and scripts (You need it)**
+   - Open the **Unity Package Manager**.  
+   - Locate the installed `Unity-Replay-System` package.  
+   - Navigate to the **Samples** tab in the Package Manager.  
+   - Download all samples.  
+
+3. **Fix Odin API Compatibility Level Issue:**
+   - If you encounter "Odin Inspector is incapable of compiling source code against the .NET Standard 2.0 API surface":
+     - Go to **Edit > Project Settings > Player > Other Settings**.
+     - Set **API Compatibility Level** to `.NET Framework`.
+
+4. **Install** `Unity Interface Support`**:**
+   - Manually install [Unity Interface Support](https://github.com/TheDudeFromCI/Unity-Interface-Support?tab=readme-ov-file) in your project. In order to do this, enter Git URL in UnityPackageManager: `https://github.com/TheDudeFromCI/Unity-Interface-Support.git?path=/Packages/net.wraithavengames.unityinterfacesupport`
+
+---
+
+## How to Test the Sample Recording Scene
+[Video Guide](https://youtu.be/xvFZjo5PgG0?si=7dqyc8xebr6O7cjw)
+1. Call `ReplayController.StartRecording()`.
+2. Modify component values linked to `ReplayableValue`.
+3. Call `ReplayController.StopRecording()`.
+4. To play the recording, call `ReplayController.StartPlaybacking()`.
+
+---
+
+## How to Use
+[Video Guide](https://youtu.be/xvFZjo5PgG0?si=7dqyc8xebr6O7cjw)
+
+1. **Create a Custom ReplayableValue**
+   - Inherit from `BaseReplayableValue<T>`.
+   - Implement logic to read and write data from a specific component.
+   - Example: Check `Samples/ReplayableValues`.
+
+2. **Create or Customize a ReplayController**
+   - Use the provided `ReplayController` or create a new one.
+   - The default `ReplayController` can be extended to meet your project’s requirements.
+   - Example: Check `Samples/ReplayController`.
+
+3. **Add RecordableObject (and PlaybackableObject)**
+   - Attach a `RecordableObject` to the root recording object in the scene.
+   - Assign it to the `ReplayController`.
+   - Do the same with `PlaybackableObject`.
+
+4. **Connect ReplayableValues**
+   - Attach and Link `ReplayableValues` to the components from which they read data.
+   - If `ReplayableValue` is not a child of `RecordableObject`/`PlaybackableObject`, manually assign it.
+
+5. **Add MonoTicker Components**
+   - Add necessary `MonoTicker` components to the scene.
+   - Assign them to the `ReplayableValues`.
+
+---
 
 
-Quality Assessment
-{
-Architecture: Nice. Allows recording scenes with many elements with minimal manual effort.
-Optimization: Nice. Successfully avoided unnecessary boxing/unboxing when reading/writing data.
-}
+## License
+This project is licensed under the MIT License, see [LICENSE](https://github.com/StepanLem/Unity-Replay-System/blob/main/LICENSE.md).
+
+[OdinSerializer](https://github.com/StepanLem/Unity-Replay-System/tree/main/OdinSerializer) folder is licensed under the Apache-2.0 License, see [LICENSE](https://github.com/StepanLem/Unity-Replay-System/blob/main/OdinSerializer/LICENSE) for more information. Odin Serializer belongs to [Team Sirenix](https://github.com/TeamSirenix)
 
 
-Dependecies:
-Unity Interface Support (GitHub Page: https://github.com/TheDudeFromCI/Unity-Interface-Support?tab=readme-ov-file)
-
-Project Setup:
-0.0 Install this package via PackageManager => Add package from git URL => https://github.com/StepanLem/ReplaySystem.git
-0.1 To Fix "Odin Inspector is incapable of compiling source code against the .NET Standard 2.0 API surface. You can change the API Compatibility Level in the Player settings": 
-Go to Edit => ProjectSettings => Player => OtherSettings => "Api Compatability Setting" set to .NetFramework
-0.2 Install UnityInterfaceSupport in your project. The link to the GitHub with Setup instructions is provided above
- 
-
-1.Create your own ReplayableValue : BaseReplayableValue<T> that reads and writes data from a some component.
-Example: Check the Demo folder or see Replayable_Position_OfTransform.
-
-2.You can create your own ReplayController that interacts with RecordableObject.
-Example: Check ReplayController. It works as is but may need to be extended or customized to suit the specific requirements of your project.
-
-3.Add a RecordableObject to the root recording object in the scene and assign it to the ReplayController.
-
-4.Connect ReplayableValues with the components from which they read data.
-If a ReplayableValue is not a child of RecordableObject(PlaybackableObject), manually assign it to the required RecordableObject.
-
-5.Add the necessary MonoTicker components to the scene and assign them to the ReplayableValue.
-// If your project uses a DI-Container, you can inject them through it.
-
-
-Workflow:
-Call ReplayController.StartRecording();
-Modify the component values linked to ReplayableValue;
-Call ReplayController.StopRecording();
-To play the recording, call ReplayController.StartPlaybacking();
-
-
-TODO
-{
-Null checks and safeguards.
-
-Stop recording/playback when a component is destroyed.
-
-Enable dynamically adding recordable/playbackable elements to the replay system, even during an active recording/playback session.
-}
+---
+p.s. Video Guides will be soon.

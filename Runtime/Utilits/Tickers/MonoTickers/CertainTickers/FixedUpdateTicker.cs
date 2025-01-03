@@ -1,7 +1,10 @@
-﻿public class FixedUpdateTicker : MonoTicker
+﻿namespace StepanLem.ReplaySystem
 {
-    private void FixedUpdate()
+    public class FixedUpdateTicker : MonoTicker
     {
-        Tick();
+        private void FixedUpdate()
+        {
+            Tick();
+        }
     }
 }

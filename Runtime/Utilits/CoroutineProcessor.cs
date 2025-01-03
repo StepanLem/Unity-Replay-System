@@ -1,31 +1,34 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public sealed class CoroutineProcessor : MonoBehaviour
+namespace StepanLem.ReplaySystem
 {
-    private static CoroutineProcessor _instance;
-
-    private static CoroutineProcessor Instance
+    public sealed class CoroutineProcessor : MonoBehaviour
     {
-        get
+        private static CoroutineProcessor _instance;
+
+        private static CoroutineProcessor Instance
         {
-            if (_instance == null)
+            get
             {
-                var gameObject = new GameObject("[CoroutineProcessor]");
-                _instance = gameObject.AddComponent<CoroutineProcessor>();
-                DontDestroyOnLoad(gameObject);
+                if (_instance == null)
+                {
+                    var gameObject = new GameObject("[CoroutineProcessor]");
+                    _instance = gameObject.AddComponent<CoroutineProcessor>();
+                    DontDestroyOnLoad(gameObject);
+                }
+                return _instance;
             }
-            return _instance;
         }
-    }
 
-    public static Coroutine StartRoutine(IEnumerator routine)
-    {
-        return Instance.StartCoroutine(routine);
-    }
+        public static Coroutine StartRoutine(IEnumerator routine)
+        {
+            return Instance.StartCoroutine(routine);
+        }
 
-    public static void StopRoutine(Coroutine routine)
-    {
-        Instance.StopCoroutine(routine);
+        public static void StopRoutine(Coroutine routine)
+        {
+            Instance.StopCoroutine(routine);
+        }
     }
 }

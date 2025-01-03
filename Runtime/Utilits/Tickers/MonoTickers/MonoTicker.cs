@@ -1,35 +1,38 @@
 ﻿using System;
 using UnityEngine;
 
-public abstract class MonoTicker : MonoBehaviour, ITicker
+namespace StepanLem.ReplaySystem
 {
-    private int _subscriberCount;
-
-    private event Action _onTick;
-    public event Action OnTick 
+    public abstract class MonoTicker : MonoBehaviour, ITicker
     {
-        add
+        private int _subscriberCount;
+
+        private event Action _onTick;
+        public event Action OnTick
         {
-            _onTick += value;
-            _subscriberCount++;
-            if (!enabled)
+            add
             {
-                enabled = true;
+                _onTick += value;
+                _subscriberCount++;
+                if (!enabled)
+                {
+                    enabled = true;
+                }
+            }
+            remove
+            {
+                _onTick -= value;
+                _subscriberCount--;
+                if (enabled && _subscriberCount == 0)
+                {
+                    enabled = false;
+                }
             }
         }
-        remove
-        {
-            _onTick -= value;
-            _subscriberCount--;
-            if (enabled && _subscriberCount == 0)
-            {
-                enabled = false;
-            }
-        }
-    }
 
-    protected void Tick()
-    {
-        _onTick?.Invoke();
+        protected void Tick()
+        {
+            _onTick?.Invoke();
+        }
     }
 }

@@ -42,7 +42,7 @@ namespace StepanLem.ReplaySystem
 
         private void MergeKeyframesOptimized()
         {
-            //так как каждая дорожка уже отсортированна, то можно более оптимизированно их соединять
+            //since each track is already sorted, it is possible to connect them in a more optimized way.
         }
 
         public void PlayFromStart()

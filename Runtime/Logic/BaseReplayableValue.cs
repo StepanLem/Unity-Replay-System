@@ -1,5 +1,7 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace StepanLem.ReplaySystem
 {
@@ -16,6 +18,12 @@ namespace StepanLem.ReplaySystem
         {
             if (!Recordable) return null;
 
+            if (RecordingTicker == null)
+            {
+                Debug.LogError("RecordingTicker == null. Please specify RecordingTicker first.", this);
+                return null;
+            }
+
             var recording = new ValueRecording<T>(RecordingTicker, HanldeRecordingTick, ValueDataID);
             return recording;
         }
@@ -28,6 +36,12 @@ namespace StepanLem.ReplaySystem
             if (!Playbackable) return;
 
             var iValueRecord = rootRecord.GetValueRecordByID(ValueDataID);
+
+            if (iValueRecord == null)
+            {
+                Debug.LogWarning($"There is no item with key {ValueDataID} in RootRecordWithInfo.");
+                return;
+            }
 
             if (iValueRecord is not ValueRecord<T> valueRecord)
             {
@@ -43,19 +57,21 @@ namespace StepanLem.ReplaySystem
 
         protected virtual void Reset()
         {
+
             Recordable = true;
             Playbackable = true;
+#if UNITY_EDITOR
             ValueDataID = GUID.Generate().ToString();
+#endif
 
-
-            EditorUtilits.TryGetComponentInAllParents(this.transform, out RecordableObject recordableObject);
+            Utilities.TryGetComponentInAllParents(this.transform, out RecordableObject recordableObject);
 
             if (recordableObject != null)
             {
                 recordableObject._recordables.Add(this);
             }
 
-            EditorUtilits.TryGetComponentInAllParents(this.transform, out PlaybackableObject playbackableObject);
+            Utilities.TryGetComponentInAllParents(this.transform, out PlaybackableObject playbackableObject);
 
             if (playbackableObject != null)
             {
