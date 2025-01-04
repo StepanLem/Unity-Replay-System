@@ -1,10 +1,8 @@
 {
   "name": "com.stepanlem.replaysystem",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "displayName": "Replay System",
   "description": "Record animations even in the Build! And also Serialize and Play them in Runtime too.",
-  "unity": "2022.1",
-  "unityRelease": "0b5",
   "keywords": [
     "replay",
     "recording",
