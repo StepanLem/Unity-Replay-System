@@ -36,6 +36,13 @@ Allows you to Record ***any*** sequence of data, Serialize, and Replay it.
 
 4. **Install** `Unity Interface Support`**:**
    - Manually install [Unity Interface Support](https://github.com/TheDudeFromCI/Unity-Interface-Support?tab=readme-ov-file) in your project. In order to do this, enter Git URL in UnityPackageManager: `https://github.com/TheDudeFromCI/Unity-Interface-Support.git?path=/Packages/net.wraithavengames.unityinterfacesupport`
+  
+5. **Fix `Failed to find entry-points` error:**  
+   - If you encounter "Failed to find entry-points":
+      - Close the project.
+      - Navigate to the project folder.
+      - Delete the "Library" folder (this folder is compiled locally, so deleting it will not affect your project).
+      - When you restart the project, the Library will be regenerated automatically, and the error should be resolved.
 
 ---
 
