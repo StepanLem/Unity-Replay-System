@@ -18,8 +18,6 @@ Allows you to Record ***any*** sequence of data, Serialize, and Replay it.
 
 ## Installation
 
-[Video Guide](https://youtu.be/xvFZjo5PgG0?si=7dqyc8xebr6O7cjw)
-
 1. **Install the package:**
    - Open Unity Package Manager.
    - Select **Add package from Git URL**.
@@ -42,7 +40,6 @@ Allows you to Record ***any*** sequence of data, Serialize, and Replay it.
 ---
 
 ## How to Test the Sample Recording Scene
-[Video Guide](https://youtu.be/xvFZjo5PgG0?si=7dqyc8xebr6O7cjw)
 1. Call `ReplayController.StartRecording()`.
 2. Modify component values linked to `ReplayableValue`.
 3. Call `ReplayController.StopRecording()`.
@@ -51,7 +48,6 @@ Allows you to Record ***any*** sequence of data, Serialize, and Replay it.
 ---
 
 ## How to Use
-[Video Guide](https://youtu.be/xvFZjo5PgG0?si=7dqyc8xebr6O7cjw)
 
 1. **Create a Custom ReplayableValue**
    - Inherit from `BaseReplayableValue<T>`.
@@ -83,7 +79,3 @@ Allows you to Record ***any*** sequence of data, Serialize, and Replay it.
 This project is licensed under the MIT License, see [LICENSE](https://github.com/StepanLem/Unity-Replay-System/blob/main/LICENSE.md).
 
 [OdinSerializer](https://github.com/StepanLem/Unity-Replay-System/tree/main/OdinSerializer) folder is licensed under the Apache-2.0 License, see [LICENSE](https://github.com/StepanLem/Unity-Replay-System/blob/main/OdinSerializer/LICENSE) for more information. Odin Serializer belongs to [Team Sirenix](https://github.com/TeamSirenix)
-
-
----
-p.s. Video Guides will be soon.
