@@ -5,7 +5,6 @@
 A system for Recording and Replaying game data.   
 Allows you to Record ***any*** sequence of data, Serialize, and Replay it.  
 ***Work even In Build!***
-## [Video Demonstration](https://youtu.be/xvFZjo5PgG0?si=7dqyc8xebr6O7cjw)
 ---
 
 ## Quality Assessment
